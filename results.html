@@ -1,0 +1,119 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Standings Results</title> 
+    <style> 
+        body { 
+            background-color: #0a0a0a; /* Dark black background */ 
+            color: #f0f0f0; /* Light gray text */ 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            text-align: center; 
+        } 
+ 
+        h1 { 
+            background-color: #1c1c1c; /* Dark gray-black background */ 
+            color: #ff8c00; /* Orange text */ 
+            padding: 20px; 
+            margin: 0; 
+            border-bottom: 2px solid #ff4500; /* Slightly reddish-orange border */ 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for heading */ 
+        } 
+ 
+        table { 
+            width: 80%; 
+            margin: 20px auto; 
+            border-collapse: collapse; 
+            background-color: #1b1b1b; /* Dark background for table */ 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Shadow for table */ 
+        } 
+ 
+        table, th, td { 
+            border: 1px solid #333; /* Dark gray border */ 
+        } 
+ 
+        th, td { 
+            padding: 15px; 
+            text-align: center; 
+            color: #90ee90; /* Light green text for contrast */ 
+        } 
+ 
+        th { 
+            background-color: #333; /* Dark background for header */ 
+            color: #ffa500; /* Bright orange text for header */ 
+        } 
+ 
+        tr:nth-child(even) { 
+            background-color: #2b2b2b; /* Slightly lighter black for even rows */ 
+        } 
+ 
+        tr:hover { 
+            background-color: #444; /* Lighter gray on hover */ 
+            color: #32cd32; /* Bright green text on hover */ 
+            box-shadow: 0 2px 5px rgba(0, 255, 0, 0.5); /* Green glow on hover */ 
+        } 
+ 
+        a { 
+            display: inline-block; 
+            margin: 20px 0; 
+            padding: 12px 24px; 
+            background-color: #2e8b57; /* Dark green background */ 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5); /* Orange shadow */ 
+            transition: background-color 0.3s, box-shadow 0.3s; 
+        } 
+ 
+        a:hover { 
+            background-color: #3cb371; /* Slightly lighter green */ 
+            box-shadow: 0 6px 12px rgba(255, 140, 0, 0.7); /* Intense orange glow on hover */ 
+        } 
+ 
+        @media (max-width: 768px) { 
+            table { 
+                width: 95%; 
+            } 
+ 
+            th, td { 
+                padding: 10px; 
+            } 
+ 
+            h1 { 
+                font-size: 24px; 
+            } 
+ 
+            a { 
+                padding: 10px 20px; 
+            } 
+        } 
+    </style> 
+</head> 
+<body> 
+    <h1>Standings Results</h1> 
+    <table> 
+        <tr> 
+            <th>Rank</th> 
+            <th>Overall Rank</th> 
+            <th><a href="https://codeforces.com/profile/Handle" target="_blank">Handle</a></th> 
+        </tr> 
+        {% for contestant in standings %} 
+        <tr> 
+            <td>{{ loop.index }}</td> 
+            <td>{{ contestant['rank'] }}</td> 
+           <td> 
+  <a href="https://codeforces.com/profile/{{ contestant['party']['members'][0]['handle'] }}"  
+     target="_blank"  
+     style="color: #90ee90; text-decoration: underline;"> 
+     {{ contestant['party']['members'][0]['handle'] }} 
+  </a> 
+</td> 
+        </tr> 
+        {% endfor %} 
+    </table> 
+    <a href="/">Go back</a> 
+</body> 
+</html>

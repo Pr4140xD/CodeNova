@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rating Analytics</title>
+    <style>
+        body {
+            background-color: #1b1b1b;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 90%;
+            height: auto;
+            border: 5px solid #4CAF50;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,255,0,0.5);
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #f39c12;
+            color: black;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rating History for {{ handle }}</h1>
+    <img src="data:image/png;base64,{{ plot_url }}" alt="Rating Plot">
+    <br>
+    <a href="/analytics">Try Another</a>
+    <a href="/">Back to Home</a>
+</body>
+</html>
